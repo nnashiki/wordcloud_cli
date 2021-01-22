@@ -1,15 +1,6 @@
 # wordcloud_cli
 wordcloud_cli
 
-```
-python3 -m venv venv
-. venv/bin/activate
-pip install wordcloud
-pip install mecab-python3
-pip install unidic-lite
-# IPAフォントipaexm.ttf を保存
-python example.py
-```
 
 参考:
 
@@ -24,6 +15,81 @@ python example.py
     - [mecab-python3 · PyPI](https://pypi.org/project/mecab-python3/)
 - word cloud
     - [amueller/word_cloud: A little word cloud generator in Python](https://github.com/amueller/word_cloud#examples)
-    - [mask]([word_cloud/masked.py at master · amueller/word_cloud](https://github.com/amueller/word_cloud/blob/master/examples/masked.py))
-    
-- 
+    - [mask][word_cloud/masked.py at master · amueller/word_cloud](https://github.com/amueller/word_cloud/blob/master/examples/masked.py)
+  
+# venv で作る際の手順 
+
+```
+python3 -m venv venv
+. venv/bin/activate
+pip install wordcloud
+pip install mecab-python3
+pip install unidic-lite
+# IPAフォントipaexm.ttf を保存
+python example.py
+```
+
+# poetry した際の手順
+- `poetry search wordcloud-cli-for-japanese`
+  - [パッケージ命名規則](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)
+- `poetry new --src wordcloud-cli-for-japanese`
+- `cd wordcloud-cli-for-japanese`
+- `tree .`
+
+```
+.
+├── README.rst
+├── pyproject.toml
+├── src
+│   └── wordcloud_cli_for_japanese
+│   └── __init__.py
+└── tests
+    ├── __init__.py
+    └── test_wordcloud_cli_for_japanese.py
+
+3 directories, 5 files
+```
+
+- `poetry shell`
+- `which python`
+
+```
+wordcloud_cli/wordcloud-cli-for-japanese/.venv/bin/python
+```
+
+- `poetry install`
+  - デフォルトで dependencies に入っているやつを install
+  - lock が作成される
+
+```
+$ poetry install
+Updating dependencies
+Resolving dependencies... (1.2s)
+
+Writing lock file
+
+Package operations: 8 installs, 0 updates, 0 removals
+
+  • Installing pyparsing (2.4.7)
+  • Installing attrs (20.3.0)
+  • Installing more-itertools (8.6.0)
+  • Installing packaging (20.8)
+  • Installing pluggy (0.13.1)
+  • Installing py (1.10.0)
+  • Installing wcwidth (0.2.5)
+  • Installing pytest (5.4.3)
+
+Installing the current project: wordcloud-cli-for-japanese (0.1.0)
+```
+
+- `pytest`
+  - ここらで1回テストしてみる
+- `poetry add wordcloud mecab-python3 unidic-lite click`
+  - 開発に必要なパッケージを全て足す
+- `core.py(cli関数のみ)作成して呼び出してみる`
+  - `poetry run python src/wordcloud_cli_for_japanese/core.py`
+  
+- `[tool.poetry.scripts]` に追加しておく
+  - `wordcloud_cli_for_japanese` cliになった際の名称になる
+  - `poetry run wordcloud_cli_for_japanese`
+  
