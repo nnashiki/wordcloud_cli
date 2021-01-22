@@ -88,8 +88,16 @@ Installing the current project: wordcloud-cli-for-japanese (0.1.0)
   - 開発に必要なパッケージを全て足す
 - `core.py(cli関数のみ)作成して呼び出してみる`
   - `poetry run python src/wordcloud_cli_for_japanese/core.py`
-  
 - `[tool.poetry.scripts]` に追加しておく
   - `wordcloud_cli_for_japanese` cliになった際の名称になる
   - `poetry run wordcloud_cli_for_japanese`
+- `poetry publish --build` でパッケージ化してみる
+  - wheel と tar.gz が作成される
+  - 別 venv から install してみる
+      - `pip install wordcloud-cli-for-japanese/dist/wordcloud_cli_for_japanese-0.1.0-py3-none-any.wh`
   
+```
+$ wordcloud_cli_for_japanese
+this is wordcloud_cli_for_japanese
+```
+
