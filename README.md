@@ -101,3 +101,11 @@ $ wordcloud_cli_for_japanese
 this is wordcloud_cli_for_japanese
 ```
 
+- 実装
+  - 実装
+  - IPAフォントダウンロード
+  - pyproject.toml に `include = ["data/*"]` を追加
+- 実行
+  - `poetry run python src/wordcloud_cli_for_japanese/core.py  --target ./src/wordcloud_cli_for_japanese/data/sample.txt --out sample.png`
+  - `wordcloud_cli_for_japanese --target wordcloud-cli-for-japanese/src/wordcloud_cli_for_japanese/data/sample.txt --out sample.png`
+

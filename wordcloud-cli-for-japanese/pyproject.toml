@@ -1,8 +1,9 @@
 [tool.poetry]
 name = "wordcloud-cli-for-japanese"
-version = "0.1.0"
+version = "0.9.0"
 description = ""
 authors = ["Niten Nashiki <n.nashiki.work@gmail.com>"]
+include = ["src/wordcloud_cli_for_japanese/data/*"]
 
 [tool.poetry.dependencies]
 python = "^3.8"

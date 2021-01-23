@@ -32,7 +32,7 @@ def create_wordcloud(text):
     wordcloud = WordCloud(background_color="white",
                           width=900,
                           height=500,
-                          font_path='ipaexm.ttf',
+                          font_path='wordcloud-cli-for-japanese/ipaexm.ttf',
                           stopwords=set(stop_words)).generate(text)
 
     plt.figure(figsize=(15, 12))
