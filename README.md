@@ -107,5 +107,10 @@ this is wordcloud_cli_for_japanese
   - pyproject.toml に `include = ["data/*"]` を追加
 - 実行
   - `poetry run python src/wordcloud_cli_for_japanese/core.py  --target ./src/wordcloud_cli_for_japanese/data/sample.txt --out sample.png`
+  
+- install (ファイルシステム)
+  - `pip install wordcloud-cli-for-japanese/dist/wordcloud_cli_for_japanese-0.9.0-py3-none-any.whl`
   - `wordcloud_cli_for_japanese --target wordcloud-cli-for-japanese/src/wordcloud_cli_for_japanese/data/sample.txt --out sample.png`
-
+- install (git)
+  - `pip install git+https://git@github.com/nnashiki/wordcloud_cli#subdirectory=wordcloud-cli-for-japanese`
+  - `wordcloud_cli_for_japanese --target sample.txt --out sample.png`
